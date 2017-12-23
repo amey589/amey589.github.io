@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Amey's blog - Networking</title>
+        <title>Using SSH to tunnel traffic</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -16,13 +16,18 @@
                 <nav><ul>
                     <li><a href="/pages/about-me-page.html">About Me</a></li>
                     <li><a href="/pages/contact.html">Contact</a></li>
-                    <li><a href="/category/misc.html">misc</a></li>
+                    <li class="active"><a href="/category/misc.html">misc</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/my-first-post.html" rel="bookmark"
+           title="Permalink to Using SSH to tunnel traffic">Using SSH to tunnel traffic</a></h1>
+    </header>
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/my-first-post.html">Using SSH to tunnel traffic</a></h1>
+    <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2017-12-19T23:13:01-05:00">
                 Published: Tue 19 December 2017
@@ -37,7 +42,7 @@
         </address>
 <p>In <a href="/category/misc.html">misc</a>.</p>
 <p>tags: <a href="/tag/networking.html">Networking</a> <a href="/tag/linux.html">linux</a> <a href="/tag/ssh.html">ssh</a> </p>
-</footer><!-- /.post-info --><p><strong>Problem</strong>
+</footer><!-- /.post-info -->      <p><strong>Problem</strong>
 I want to securely browse net at public wifi.</p>
 <p>I want to view websites that filter content based on geographic location of the user. For example , when I am in Boston I can not see content on 
 hotstar.com  [http://hotstar.com] 
@@ -58,8 +63,11 @@ $ ssh -ND <span class="m">1081</span> ubuntu@&lt;remote IP&gt; -p <span class="m
 <li>Next step is make your browser to use http proxy that we setup above
 Go to Chrome-&gt;settings-&gt;open http proxy-&gt;set socks proxy
 use localhost:1081 as we used above</li>
-</ul>                </article>
-            </aside><!-- /#featured -->
+</ul>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
         <section id="extras" class="body">
                 <div class="social">
                         <h2>social</h2>

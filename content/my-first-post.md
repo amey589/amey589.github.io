@@ -1,9 +1,9 @@
 Title: Using SSH to tunnel traffic
 Date: Tue Dec 19 23:13:01 EST 2017
-Modified: Tue Dec 19 23:13:13 EST 2017
+Modified: Sat Dec 23 12:20:16 EST 2017 
 Category: misc
 Tags: Networking,linux,ssh
-Slug: ssh-tunnel
+Slug: my-first-post
 Authors: Amey Joshi
 Summary: ssh tunnel
 
