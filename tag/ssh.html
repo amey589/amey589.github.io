@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Amey's blog - first</title>
+        <title>Amey's blog - ssh</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
         <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Amey's blog Atom Feed" />
 
@@ -23,23 +23,43 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/My-first-post.html">My first post</a></h1>
+                    <h1 class="entry-title"><a href="/my-first-post.html">Using SSH to tunnel traffic</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2017-12-19T23:13:01-05:00">
                 Published: Tue 19 December 2017
         </abbr>
 		<br />
-        <abbr class="modified" title="2017-12-19T23:13:13-05:00">
-                Updated: Tue 19 December 2017
+        <abbr class="modified" title="2017-12-23T12:20:16-05:00">
+                Updated: Sat 23 December 2017
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/amey-joshi.html">Amey Joshi</a>
         </address>
 <p>In <a href="/category/misc.html">misc</a>.</p>
-<p>tags: <a href="/tag/first.html">first</a> <a href="/tag/misc.html">misc</a> </p>
-</footer><!-- /.post-info --><p>This is my <strong>first blog post with pelican</strong>
-Stay tuned for more posts!!</p>                </article>
+<p>tags: <a href="/tag/networking.html">Networking</a> <a href="/tag/linux.html">linux</a> <a href="/tag/ssh.html">ssh</a> </p>
+</footer><!-- /.post-info --><p><strong>Problem</strong>
+I want to securely browse net at public wifi.</p>
+<p>I want to view websites that filter content based on geographic location of the user. For example , when I am in Boston I can not see content on 
+hotstar.com  [http://hotstar.com] 
+website. or when I am in Pune,India I can not see contents on US websites that filter based on user location (Hulu / Netflix)</p>
+<p><strong>Solution</strong>
+Use ssh port forwarding using remote host in geographical location you want
+Use remote host ip address. I am using free tier Amazon ec2 instance for this. I
+keep 2 amazon free tier instances, one in US region and one in India (Mumbai) region</p>
+<p>Once you get IP of your Amazon ec2 instance run this command to run socks proxy on
+localhost with traffic tunneled to your remote host. I use identity file that I newly created with my ec2 host for ssh. you can either use this method or public key for ssh
+I name this .pem file from AWS as aws-ec2-us.pem and aws-ec2-india.pem</p>
+<div class="highlight"><pre><span></span>$ chmod <span class="m">400</span> aws-ec2-us.pm
+$ ssh -ND <span class="m">1081</span> ubuntu@&lt;remote IP&gt; -p <span class="m">22</span> -4 -i aws-ec2-us.pem
+</pre></div>
+
+
+<ul>
+<li>Next step is make your browser to use http proxy that we setup above
+Go to Chrome-&gt;settings-&gt;open http proxy-&gt;set socks proxy
+use localhost:1081 as we used above</li>
+</ul>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="social">
@@ -62,5 +82,14 @@ Stay tuned for more posts!!</p>                </article>
                 <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
         </footer><!-- /#contentinfo -->
 
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-111489483-1', 'auto');
+    ga('send', 'pageview');
+    </script>
 </body>
 </html>
