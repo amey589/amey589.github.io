@@ -7,4 +7,4 @@ Slug: contact
 Authors: Amey Joshi
 Summary: 
 
-Contact me : amey joshi 5 9 at gmail 
+Contact me : amey (dot) joshi 5 9 (at) gmail 
